@@ -38,22 +38,6 @@ export class DepositComponent implements OnInit, OnDestroy {
     text: '天天赢',
     class: 'tty',
     amount: 1000
-  }, {
-    id: 1,
-    num:'NO.2',
-    date:'周',
-    money:'14.4',
-    text: '周周发',
-    class: 'zzf',
-    amount: 1000
-  }, {
-    id: 2,
-    num:'NO.3',
-    date:'月',
-    money:'60',
-    text: '月月赚',
-    class: 'yyz',
-    amount: 1000
   }];
   type = 0;
   mulType = 8;

@@ -36,7 +36,7 @@ export class StrategyComponent implements OnInit {
     this.strategyType = this.peiziData.type;
     if (this.isAdd === 'true') {
       this.http.userDetail().subscribe(res => {
-        this.info.fwf = (Math.round(res['manageFeeRate'] * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
+        this.info.fwf = (Math.round(res['manageMakeFeeRate'] * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
       });
     } else {
       this.http.financeScheme().subscribe(res => {

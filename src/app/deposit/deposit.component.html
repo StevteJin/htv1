@@ -45,10 +45,16 @@
       <ng-container *ngFor="let item of detail">
         <div (click)='goto(item.id,item.mul,item.financeFeeRate)' class="multiple-item" [ngClass]="mulType == item.mul?'multiple-active':''">
           <div class="title">放大倍数</div>
-          <span class="multiple-box">{{item.mul}}<span class="several-times">&nbsp;倍</span></span>
-          <p>{{amount(item.mul)}} <span class="multiple-unit">万元</span></p>
-          <p>{{manageFeeFn(item.mul,item.financeFeeRate)}} <span class="multiple-unit">元/{{dateType[type]}}</span></p>
-          <img src="./assets/images/strategy_search.png" class="strategy-search"/>
+          <span class="multiple-box">{{item.mul}}
+            <span class="several-times">&nbsp;倍</span>
+          </span>
+          <p>{{amount(item.mul)}}
+            <span class="multiple-unit">万元</span>
+          </p>
+          <p>{{manageFeeFn(item.mul,item.financeFeeRate)}}
+            <span class="multiple-unit">元/{{dateType[type]}}</span>
+          </p>
+          <img src="./assets/images/strategy_search.png" class="strategy-search" />
         </div>
       </ng-container>
       <!-- <div (click)='goto(item.id,item.mul,item.financeFeeRate)' [class]="mulType == item.mul?'multiple-active':''" *ngFor="let item of detail">

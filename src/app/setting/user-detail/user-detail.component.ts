@@ -17,6 +17,7 @@ export class UserDetailComponent implements OnInit {
     financeStartDate: '',
     flatLine: 0,
     manageFeeRate: 0,
+    manageMakeFeeRate:0,
     opUserCode: '',
     positionRatio: 0,
     secondBoardPositionRatio: 0
