@@ -71,16 +71,16 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.financeScheme();
     this.getNewsToken();
     this.stopTouchendPropagationAfterScroll();
-    clearInterval(this.timer);
-    this.sizeNum = 0;
-    this.timer = setInterval(() => {
-      this.sizeNum++;
-      this.size = -40 * this.sizeNum;
-      console.log('距离', this.sizeNum, this.size);
-      var scrollBox = document.getElementById('scrollBox');
-      scrollBox.style.marginTop = this.size + 'px';
-      this.showMarquee();
-    }, 3000);
+    // clearInterval(this.timer);
+    // this.sizeNum = 0;
+    // this.timer = setInterval(() => {
+    //   this.sizeNum++;
+    //   this.size = -40 * this.sizeNum;
+    //   console.log('距离', this.sizeNum, this.size);
+    //   var scrollBox = document.getElementById('scrollBox');
+    //   scrollBox.style.marginTop = this.size + 'px';
+    //   this.showMarquee();
+    // }, 3000);
   }
   showMarquee() {
     this.flag = true;
@@ -152,6 +152,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     window.clearTimeout(this.timeout);
+    clearInterval(this.timer);
   }
 
   generalTrend() {
