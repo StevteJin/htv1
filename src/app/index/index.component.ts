@@ -12,6 +12,10 @@ export class IndexComponent implements OnInit, OnDestroy {
   list: any;
   timeout: any;
   newslist: any;
+  flag: boolean = false;
+  timer = null;
+  size: any;
+  sizeNum: any;
   type = 0;
   title = [{
     id: 0,
@@ -40,11 +44,11 @@ export class IndexComponent implements OnInit, OnDestroy {
   financeData = [];
   financeDetail = [];
   newsToken: string = "";
-  newsTitle:object;
-  newsId:any;
-  newsContent:object;
-  pageNum:object=[1,2,3,4,5];
-  page:any=1;
+  newsTitle: object;
+  newsId: any;
+  newsContent: object;
+  pageNum: object = [1, 2, 3, 4, 5];
+  page: any = 1;
   locked: boolean = false;
   constructor(public data: DataService, public http: HttpService) {
     this.logo = this.data.logo;
@@ -67,6 +71,19 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.financeScheme();
     this.getNewsToken();
     this.stopTouchendPropagationAfterScroll();
+    clearInterval(this.timer);
+    this.sizeNum = 0;
+    this.timer = setInterval(() => {
+      this.sizeNum++;
+      this.size = -40 * this.sizeNum;
+      console.log('距离', this.sizeNum, this.size);
+      var scrollBox = document.getElementById('scrollBox');
+      scrollBox.style.marginTop = this.size + 'px';
+      this.showMarquee();
+    }, 3000);
+  }
+  showMarquee() {
+    this.flag = true;
   }
   getNewsToken() {
     const param = {
@@ -93,20 +110,20 @@ export class IndexComponent implements OnInit, OnDestroy {
     }
     this.http.getNewsToken(param).subscribe(res => {
       console.log(res);
-      this.newsTitle=res['data'];
-      let id=this.newsTitle[0].id;
+      this.newsTitle = res['data'];
+      let id = this.newsTitle[0].id;
       this.getNewsContent(id);
     }, err => {
       this.data.error = err.error;
       this.data.isError();
     });
   }
-  getPage(page){
-    this.page=page;
+  getPage(page) {
+    this.page = page;
     this.getNewsContent(this.newsId);
   }
   getNewsContent(id) {
-    this.newsId=id;
+    this.newsId = id;
     let token = localStorage.getItem("tokenx");
     const param = {
       "method": 'getNavPageData',
@@ -118,7 +135,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     }
     this.http.getNewsToken(param).subscribe(res => {
       console.log(res);
-      this.newsContent=res['data'];
+      this.newsContent = res['data'];
     }, err => {
       this.data.error = err.error;
       this.data.isError();

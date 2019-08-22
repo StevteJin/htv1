@@ -57,15 +57,17 @@
             <span>重磅资讯：</span>
         </div>
         <div class="newsbox">
-            <div class="news-content" *ngFor="let item of newslist" (click)='goto2(item.id)'>
-                <p class="content-title">
-                    {{item.title}}
-                </p>
-                <p class="content-info">
-                    <span>
-                        {{item.createTime}}
-                    </span>
-                </p>
+            <div id="scrollBox" [class.scroll_top]="flag">
+                <div class="news-content" *ngFor="let item of newslist" (click)='goto2(item.id)'>
+                    <p class="content-title">
+                        {{item.title}}
+                    </p>
+                    <p class="content-info">
+                        <span>
+                            {{item.createTime}}
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

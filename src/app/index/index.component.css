@@ -46,6 +46,8 @@
     background: #fff;
     border-bottom: solid 1px #e4e4e4;
     height: 40px;
+    line-height: 40px;
+    overflow: hidden;
 }
 
 .news-title {
@@ -70,14 +72,28 @@
 .newsbox {
     float: left;
     width: 70%;
+    overflow: hidden;
     height: 40px;
     line-height: 40px;
-    overflow: hidden
+    position: relative;
+}
+
+#scrollBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.scroll_top {
+    transition: all 0.5s;
+    margin-top: -40px;
 }
 
 .news-content {
-    overflow: hidden;
-    min-width: 130%;
+    /* overflow: hidden; */
+    min-width: 100%;
+    height: 40px;
+    line-height: 40px;
 }
 
 .new-zixun {
