@@ -32,14 +32,16 @@ export class StrategyComponent implements OnInit {
 
   ngOnInit() {
     this.peiziData = JSON.parse(this.data.getSession('strategyData'));
-    console.log(this.peiziData);
+    console.log('我是数据', this.peiziData);
     this.strategyType = this.peiziData.type;
     if (this.isAdd === 'true') {
       this.http.userDetail().subscribe(res => {
+        console.log('我', res);
         this.info.fwf = (Math.round(res['manageMakeFeeRate'] * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
       });
     } else {
       this.http.financeScheme().subscribe(res => {
+        console.log('他', res);
         if (this.peiziData.type === '0') {
           this.financeData = res['resultInfo']['day'];
         } else if (this.peiziData.type === '1') {
@@ -72,7 +74,9 @@ export class StrategyComponent implements OnInit {
   back() {
     this.data.back();
   }
-
+  addNum(num) {
+    return num * 100
+  }
   alert(type) {
     let msg = '';
     if (type === 0) {

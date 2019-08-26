@@ -12,10 +12,12 @@
 </div> -->
 <div class="strategy-tabs">
   <div *ngFor="let item of typeList" (click)='selectType(item.id,item.money)' [class]="item.id==type?'tabsActive':'tabsbox'">
-    <div class="num">{{item.num}}</div>
-    <div class="interest">{{item.date}}利息{{item.money}}元</div>
+    <!-- <div class="num">{{item.num}}</div>
+    <div class="interest">{{item.date}}利息{{item.money}}元</div> -->
+    <div class="num"></div><br />
+    <div class="interest">按使用金额计息</div>
     <div class="amount-num">{{item.amount}}元起</div>
-    <div>—</div>
+    <!-- <div>—</div> -->
   </div>
 </div>
 <div class="zixuan-content">

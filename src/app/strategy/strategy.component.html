@@ -31,6 +31,14 @@
           {{info.fwf}}元
         </span>
       </div>
+      <div class="list-item">
+        <span class="list-item-name">
+          管理费率
+        </span>
+        <span class="list-item-content">
+          {{addNum(financeFee)}}%
+        </span>
+      </div>
       <div class="list-item" *ngIf="strategyType !== '0'">
         <span class="list-item-name">
           本{{strategyType === '1'?'周':'月'}}管理费
@@ -41,7 +49,8 @@
       </div>
       <div class="list-item" (click)='alert(0)'>
         <span class="list-item-name">
-          警戒线<img src="./assets/images/wenhao.png" alt="">
+          警戒线
+          <img src="./assets/images/wenhao.png" alt="">
         </span>
         <span class="list-item-content">
           {{info.jjje}}元
@@ -49,7 +58,8 @@
       </div>
       <div class="list-item" (click)='alert(1)'>
         <span class="list-item-name">
-          平仓线<img src="./assets/images/wenhao.png" alt="">
+          平仓线
+          <img src="./assets/images/wenhao.png" alt="">
         </span>
         <span class="list-item-content">
           {{info.zsje}}元
