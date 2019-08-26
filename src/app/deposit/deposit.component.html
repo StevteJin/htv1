@@ -51,8 +51,9 @@
           <p>{{amount(item.mul)}}
             <span class="multiple-unit">万元</span>
           </p>
-          <p>{{manageFeeFn(item.mul,item.financeFeeRate)}}
-            <span class="multiple-unit">元/{{dateType[type]}}</span>
+          <p>{{manageFeeFn1(item.mul,item.makeFeeRate)}}
+            <!-- <span class="multiple-unit">元/{{dateType[type]}}</span> -->
+            <span class="multiple-unit">元/仓</span>
           </p>
           <img src="./assets/images/strategy_search.png" class="strategy-search" />
         </div>

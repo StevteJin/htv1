@@ -8,7 +8,7 @@ declare var layer: any;
   templateUrl: './deposit.component.html',
   styleUrls: ['./deposit.component.css']
 })
-export class DepositComponent implements OnInit, OnDestroy { 
+export class DepositComponent implements OnInit, OnDestroy {
   logo = '';
   hasZixuan = this.data.hide;
   show = 'inactive';
@@ -32,9 +32,9 @@ export class DepositComponent implements OnInit, OnDestroy {
   money = 1000;
   typeList = [{
     id: 0,
-    num:'NO.1',
-    date:'日',
-    money:'3',
+    num: 'NO.1',
+    date: '日',
+    money: '3',
     text: '天天赢',
     class: 'tty',
     amount: 1000
@@ -100,7 +100,7 @@ export class DepositComponent implements OnInit, OnDestroy {
       return b['financeRatio'] - a['financeRatio'];
     });
     this.financeData.forEach((element, index) => {
-      this.detail.push({ id: index, mul: element['financeRatio'], financeFeeRate: element['financeFeeRate'] });
+      this.detail.push({ id: index, mul: element['financeRatio'], financeFeeRate: element['financeFeeRate'], makeFeeRate: element['makeFeeRate'] });
     });
     this.mulType = this.detail[0].mul;
   }
@@ -167,10 +167,14 @@ export class DepositComponent implements OnInit, OnDestroy {
 
   }
 
-  manageFeeFn(type, financeFeeRate) {
-    return (Math.round(type * this.money * financeFeeRate * 100) / 100).toFixed(2);
+  // manageFeeFn(type, financeFeeRate) {
+  //   return (Math.round(type * this.money * financeFeeRate * 100) / 100).toFixed(2);
+  // }
+  //50环境的变建仓费率了
+  manageFeeFn1(type, makeFeeRate) {
+    console.log('建仓', makeFeeRate)
+    return (Math.round(type * this.money * makeFeeRate * 100) / 100).toFixed(2);
   }
-
   selectType(id, money) {
     if (this.userInfo.allottedScale === '0') {
       this.type = id;
