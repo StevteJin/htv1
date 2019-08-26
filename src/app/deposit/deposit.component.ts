@@ -175,6 +175,9 @@ export class DepositComponent implements OnInit, OnDestroy {
     console.log('建仓', makeFeeRate)
     return (Math.round(type * this.money * makeFeeRate * 100) / 100).toFixed(2);
   }
+  addNum(num) {
+    return num * 100
+  }
   selectType(id, money) {
     if (this.userInfo.allottedScale === '0') {
       this.type = id;

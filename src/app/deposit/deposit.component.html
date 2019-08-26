@@ -51,10 +51,11 @@
           <p>{{amount(item.mul)}}
             <span class="multiple-unit">万元</span>
           </p>
-          <p>{{manageFeeFn1(item.mul,item.makeFeeRate)}}
-            <!-- <span class="multiple-unit">元/{{dateType[type]}}</span> -->
-            <span class="multiple-unit">元/仓</span>
-          </p>
+          <!-- <p>{{manageFeeFn(item.mul,item.financeFeeRate)}} -->
+          <!-- <p>{{manageFeeFn1(item.mul,item.makeFeeRate)}} -->
+          <!-- <span class="multiple-unit">元/{{dateType[type]}}</span> -->
+          <!-- <span class="multiple-unit">元/仓</span> -->
+          <p>建仓费率：{{addNum(item.makeFeeRate)}}%<br />管理费率：{{addNum(item.financeFeeRate)}}%</p>
           <img src="./assets/images/strategy_search.png" class="strategy-search" />
         </div>
       </ng-container>
