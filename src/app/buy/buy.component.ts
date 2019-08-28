@@ -124,19 +124,19 @@ export class BuyComponent implements DoCheck, OnDestroy, OnInit {
     ngOnInit() {
         var oHeight = $(document).height();
         // 在adnroid中如何监听软键盘的弹起与收起
-        $(window).resize(function(){ //ios软键盘弹出不会触发resize事件
-            if($(document).height() < oHeight){
+        $(window).resize(function () { //ios软键盘弹出不会触发resize事件
+            if ($(document).height() < oHeight) {
                 // 当软键盘弹起，在此处操作
-                $("#search-div").css("position","absolute");
-                $("#search-div").css("bottom","-265px");
-                $("#footer1").css("position","static");
-            }else{
+                $("#search-div").css("position", "absolute");
+                $("#search-div").css("bottom", "-265px");
+                $("#footer1").css("position", "static");
+            } else {
                 // 当软键盘收起，在此处操作
-                $("#search-div").css("position","absolute"); //adsolute或fixed，看你布局
-                $("#search-div").css("bottom","0px");
-                $("#footer1").css("position","fixed");
-            }
-        });
+                $("#search-div").css("position", "absolute"); //adsolute或fixed，看你布局
+                $("#search-div").css("bottom", "0px");
+                $("#footer1").css("position", "fixed");
+            }
+        });
     }
 
     ngDoCheck() {
@@ -486,7 +486,12 @@ export class BuyComponent implements DoCheck, OnDestroy, OnInit {
             if (!this.data.isNull(res['resultInfo']['quotation'])) {
                 this.data.stockHQ = res['resultInfo']['quotation'];
                 if (this.classType === 'BUY') {
-                    this.appointCnt = 100;
+                    let reg = /^688[0-9]{3}$/;
+                    if (reg.test(this.data.stockHQ.stockCode)) {
+                        this.appointCnt = 200;
+                    } else {
+                        this.appointCnt = 100;
+                    }
                     this.fullcount = res['resultInfo']['maxBuyCnt'];
                 } else {
                     this.fullcount = res['resultInfo']['maxSellCnt'];
