@@ -44,8 +44,8 @@
     </div>
     <div class="tabs">
         <div class="tabs-div2 " *ngFor="let item of list">
-            <p>{{item.lastPrice}}</p>
-            <p [class]="color(item.upRatio)">{{item.preClosePrice}}</p>
+            <p>{{item.preClosePrice}}</p>
+            <p [class]="color(item.upRatio)">{{item.lastPrice}}</p>
             <p [class]="color(item.upRatio)">{{item.upRatio}}</p>
             <p>{{item.stockName}}</p>
         </div>

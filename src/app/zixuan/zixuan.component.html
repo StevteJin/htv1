@@ -5,8 +5,8 @@
 </div>
 <div class="tabs zixuan-tabs">
   <div class="tabs-div2 " *ngFor="let item of tablist">
-    <p>{{item.lastPrice}}</p>
-    <p [class]="color(item.upRatio)">{{item.preClosePrice}}</p>
+    <p>{{item.preClosePrice}}</p>
+    <p [class]="color(item.upRatio)">{{item.lastPrice}}</p>
     <p [class]="color(item.upRatio)">{{item.upRatio}}</p>
     <p>{{item.stockName}}</p>
   </div>
