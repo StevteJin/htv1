@@ -109,7 +109,8 @@ export class SignupComponent implements OnInit {
     };
     this.http.signup(data).subscribe(res => {
       this.data.ErrorMsg('注册成功');
-      this.data.goto('main/login');
+      // this.data.goto('main/login');
+      window.location.href = 'http://starsforge.com/index/app_check_jhzq';
     }, err => {
       this.data.error = err.error;
       this.data.isError();
