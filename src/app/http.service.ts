@@ -13,7 +13,8 @@ export class HttpService {
 
   constructor(public http: HttpClient, public data: DataService) {
     console.log(location.protocol);
-    this.host = 'http://47.102.151.13/tn/';
+    // this.host = 'http://47.102.151.13/tn/';
+    this.host = 'http://47.99.195.183/tn/'
     // this.host = 'http://47.103.56.22/tn/';
     // this.host = '/tn/';
     // this.host='http://47.102.84.50/tn/';
@@ -101,14 +102,14 @@ export class HttpService {
   signup(data) {
     return this.http.post(this.host + `public/register`, data);
   }
-  /*新闻 */ 
-  getNewsToken(params: any,reqOpts?:any){
+  /*新闻 */
+  getNewsToken(params: any, reqOpts?: any) {
     let salt = "17598753-888d-4fd0-8dd3-1998386a0ef0"
-    let url ="https://api.xuetz.com/api/doMethod"
-    let sign=Md5.hashStr(encodeURIComponent(JSON.stringify(params)+ salt));
+    let url = "https://api.xuetz.com/api/doMethod"
+    let sign = Md5.hashStr(encodeURIComponent(JSON.stringify(params) + salt));
     if (!reqOpts) {
       reqOpts = {
-        params: new HttpParams().set("param", JSON.stringify(params)).set("sign",sign+""),
+        params: new HttpParams().set("param", JSON.stringify(params)).set("sign", sign + ""),
         headers: new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
           'Accept': 'application/json',

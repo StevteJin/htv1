@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
     this.phone = '';
     this.code = '';
     this.password = '';
-    this.inviteCode = '';
+    this.inviteCode = '1000';
     this.text = '获取验证码';
     this.url = window.location.host;
   }
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       this.inviteCode = window.location.hash.split('?code=')[1].split('&')[0].replace(/%3D/g, '');
       this.type = this.data.getUrl(2).split('?code=')[0];
     } else {
-      this.inviteCode = '';
+      this.inviteCode = '1000';
       this.type = this.data.getUrl(2);
     }
 

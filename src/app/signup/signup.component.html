@@ -17,9 +17,9 @@
     <div class="login-input">
       <input type="password" placeholder="密码" [(ngModel)]='password'>
     </div>
-    <div class="login-input" *ngIf="type == 'signup'">
+    <!-- <div class="login-input" *ngIf="type == 'signup'">
       <input type="text" placeholder="邀请码" [(ngModel)]='inviteCode'>
-    </div>
+    </div> -->
     <p class="book" *ngIf="type == 'signup'">
       注册即视为同意：《 <a (click)='book()'>风险揭示书</a> 》
     </p>
