@@ -63,6 +63,12 @@
       {{amount}}
     </span>
   </div>
+  <div class="list-item" style="height:130px;overflow: hidden;">
+    <span class="span-title">收款二维码</span>
+    <span class="lsit-item-content">
+      <div id="qrcode" style="text-align: center;width:100px;height:100px;margin-right:20px;margin-top:15px;margin-bottom:15px;overflow: hidden;"></div>
+    </span>
+  </div>
   <div class="list-item" style="height:auto">
     <span class="span-title" style="margin:auto 15px">
       备注
@@ -73,7 +79,8 @@
   </div>
 </div>
 <p style="padding: 20px 15px;background: #fff;">
-  请点击 <button (click)='copy()' class="copy">复制</button>复制该备注信息
+  请点击
+  <button (click)='copy()' class="copy">复制</button>复制该备注信息
 </p>
 <div class="bottom-btn" style="margin-top:20px;">
   <div class="main" (click)='pay()'>去转账</div>

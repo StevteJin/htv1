@@ -22,7 +22,8 @@ export class SignupComponent implements OnInit {
     this.phone = '';
     this.code = '';
     this.password = '';
-    this.inviteCode = '1000';
+    // this.inviteCode = '1000';183环境的人不要的
+    this.inviteCode = '';
     this.text = '获取验证码';
     this.url = window.location.host;
   }
@@ -32,7 +33,8 @@ export class SignupComponent implements OnInit {
       this.inviteCode = window.location.hash.split('?code=')[1].split('&')[0].replace(/%3D/g, '');
       this.type = this.data.getUrl(2).split('?code=')[0];
     } else {
-      this.inviteCode = '1000';
+      // this.inviteCode = '1000';183环境的人要默认的
+      this.inviteCode = '';
       this.type = this.data.getUrl(2);
     }
 
@@ -90,7 +92,7 @@ export class SignupComponent implements OnInit {
       this.data.ErrorMsg('密码长度必须大于6位不能超过12位字母和数字');
     } else if (this.inviteCode.length === 0 && this.needInvitedCode() && this.type === 'signup') {
       this.data.ErrorMsg('请输入邀请码');
-    } else {
+    } else { 
       if (this.type === 'signup') {
         this.signup();
       } else {
@@ -110,7 +112,7 @@ export class SignupComponent implements OnInit {
     this.http.signup(data).subscribe(res => {
       this.data.ErrorMsg('注册成功');
       // this.data.goto('main/login');
-      window.location.href = 'http://starsforge.com/index/app_check_jhzq';
+      window.location.href = 'http://starsforge.com/index/app_check_renxin';
     }, err => {
       this.data.error = err.error;
       this.data.isError();

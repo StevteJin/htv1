@@ -147,6 +147,8 @@
   </div>
   <div class="J-weixin-tip-img weixin-tip-img" id='weixin-tip-img'></div>
   <script>
+    console.log('我应该是地址',location.search.split('?url=')[1])
+    // location.href = 'https://' + location.search.split('?url=')[1];
     if (location.hash.indexOf('error') !== -1) {
       alert('参数错误，请检查');
     } else {

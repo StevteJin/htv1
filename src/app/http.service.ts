@@ -14,9 +14,10 @@ export class HttpService {
   constructor(public http: HttpClient, public data: DataService) {
     console.log(location.protocol);
     // this.host = 'http://47.102.151.13/tn/';
-    this.host = 'http://47.99.195.183/tn/'
+    // this.host = 'http://47.99.195.183/tn/'
     // this.host = 'http://47.103.56.22/tn/';
-    // this.host = '/tn/';
+    this.host = '/tn/';
+    // this.host='http://106.14.120.212/tn/';
     // this.host='http://47.102.84.50/tn/';
     // this.host='http://10.131.4.155:8080/tn/'
     this.ws = this.host + 'webSocket';

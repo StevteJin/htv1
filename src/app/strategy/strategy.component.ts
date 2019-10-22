@@ -23,6 +23,7 @@ export class StrategyComponent implements OnInit {
   peiziData: any;
   dateText = 'day';
   financeFee = 0;
+  makeFeeRate = 0;
   isAdd: any;
   financeData = [];
   dayType = ['day', 'week', 'month'];
@@ -52,7 +53,8 @@ export class StrategyComponent implements OnInit {
         this.financeData.forEach(element => {
           if (element['financeRatio'] === this.peiziData.mulType) {
             this.financeFee = element['financeFeeRate'];
-            this.info.fwf = (Math.round(this.financeFee * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
+            this.makeFeeRate = element['makeFeeRate'];
+            this.info.fwf = (Math.round(this.makeFeeRate * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
           }
         });
       });
