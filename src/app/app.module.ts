@@ -46,6 +46,9 @@ import { SettingComponent } from './setting/setting/setting.component';
 import { ResetPwdComponent } from './setting/reset-pwd/reset-pwd.component';
 import { DepositComponent } from './deposit/deposit.component';
 import { UserDetailComponent } from './setting/user-detail/user-detail.component';
+//二维码
+import { ErCodeComponet } from './ercode/ercode.component';
+
 /*子路由 start */
 const jiaoyiChildRoutes: Routes = [
   { path: 'chicang', component: ChicangComponent },
@@ -87,6 +90,7 @@ const appRoutes: Routes = [
   { path: 'card', component: CardComponent },
   { path: 'chart', component: ChartComponent },
   { path: 'usercenter', component: UsercenterComponent },
+  { path: 'ercode', component: ErCodeComponet },
   { path: 'main', component: MainComponent, children: appChildRoutes },
   { path: 'newdetail/:id', component: NewsDetailComponent },
   { path: '', redirectTo: 'main', pathMatch: 'full' }
@@ -131,7 +135,8 @@ const appRoutes: Routes = [
     SettingComponent,
     ResetPwdComponent,
     DepositComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ErCodeComponet
   ],
   //imports用来导入module
   imports: [
