@@ -73,6 +73,9 @@
             <img src="./assets/images/userCenter/change_pwd.png" />
             <div>修改密码</div>
         </div>
-        <div></div>
+        <div (click)='goto1("ercode")' *ngIf="is_agent_bool">
+            <img src="./assets/images/ercode.png" />
+            <div>推广二维码</div>
+        </div>
     </div>
 </div>

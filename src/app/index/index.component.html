@@ -71,17 +71,32 @@
             </div>
         </div>
     </div>
+    <!-- <div class="new-zixun">
+        <div class="zixun-box" *ngFor="let item of detail">
+            <div class="bigtitle">&nbsp;&nbsp;&nbsp;{{item.text1}}</div>
+            <img class="bgbanner" src="{{item.img}}" alt="">
+            <div class="zixun-num">{{item.money}}</div>
+            <div class="zixun-content1"> -->
+    <!-- <div class="zixun1">{{item.date}}利息
+                    <span class="{{item.style}}">
+                        <span class="bigmoney">{{item.money}}</span>¥</span>&nbsp;元!</div> -->
+    <!-- <div class="zixun1">按使用金额计息</div>
+                <div class="zixun2">{{item.amount}}元起</div>
+                <div class="{{item.btns}}" (click)='goto(item.id)'>
+                    立即申请
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--106.14.120.212客户要的跟别人不同-->
     <div class="new-zixun">
         <div class="zixun-box" *ngFor="let item of detail">
             <div class="bigtitle">&nbsp;&nbsp;&nbsp;{{item.text1}}</div>
             <img class="bgbanner" src="{{item.img}}" alt="">
             <div class="zixun-num">{{item.money}}</div>
             <div class="zixun-content1">
-                <!-- <div class="zixun1">{{item.date}}利息
-                    <span class="{{item.style}}">
-                        <span class="bigmoney">{{item.money}}</span>¥</span>&nbsp;元!</div> -->
-                <div class="zixun1">按使用金额计息</div>
-                <div class="zixun2">{{item.amount}}元起</div>
+                <div class="zixun1">{{item.zhongText}}</div>
+                <div class="zixun2">{{item.diText}}</div>
                 <div class="{{item.btns}}" (click)='goto(item.id)'>
                     立即申请
                 </div>

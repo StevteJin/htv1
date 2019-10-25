@@ -35,6 +35,8 @@ export class UsercenterComponent implements OnInit, OnDestroy {
   freezaFee = 0;
   ableScale = 0;
   allottedScale = '';
+  is_agent: any;
+  is_agent_bool:Boolean;
   constructor(public data: DataService, public http: HttpService) {
   }
   ngOnDestroy() {
@@ -45,6 +47,14 @@ export class UsercenterComponent implements OnInit, OnDestroy {
     this.data.clearInterval();
     this.userInfo = this.data.userInfo;
     this.usercenter();
+    this.is_agent = localStorage.getItem('is_agent')
+    if(this.is_agent==1){
+      this.is_agent_bool=true
+    }else{
+      this.is_agent_bool=false
+    }
+    console.log('我是类型',this.is_agent)
+    console.log('我是布尔值',this.is_agent_bool);
   }
 
   goto(url) {
