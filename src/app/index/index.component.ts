@@ -41,7 +41,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     id: 0,
     text: '按日结算'
   },{
-    id: 1,
+    id: 3,
     text: '合作分成'
   },{
     id: 2,
@@ -66,11 +66,11 @@ export class IndexComponent implements OnInit, OnDestroy {
   },{
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
-    id: 0,
-    num: 'NO.1',
+    id: 3,
+    num: 'NO.3',
     amount: '无资金限制',
     multiple: '8',
-    date: '日',
+    date: '单票',
     money: '3',
     money2: '元',
     text: '2个交易日',
@@ -82,11 +82,11 @@ export class IndexComponent implements OnInit, OnDestroy {
   },{
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
-    id: 0,
-    num: 'NO.1',
+    id: 2,
+    num: 'NO.2',
     amount: '无资金限制',
     multiple: '8',
-    date: '日',
+    date: '月',
     money: '3',
     money2: '元',
     text: '2个交易日',

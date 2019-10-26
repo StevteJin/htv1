@@ -14,6 +14,7 @@ export class HttpService {
   constructor(public http: HttpClient, public data: DataService) {
     console.log(location.protocol);
     // this.host = 'http://47.102.151.13/tn/';
+    // this.host = 'http://h5tncl.starsforge.com/tn/';
     // this.host = 'http://47.99.195.183/tn/'
     // this.host = 'http://47.103.56.22/tn/';
     this.host = '/tn/';

@@ -26,7 +26,7 @@ export class StrategyComponent implements OnInit {
   makeFeeRate = 0;
   isAdd: any;
   financeData = [];
-  dayType = ['day', 'week', 'month'];
+  dayType = ['day', 'week', 'month', 'single'];
   constructor(public data: DataService, public http: HttpService) {
     this.isAdd = this.data.getSession('isAdd');
   }
@@ -47,8 +47,10 @@ export class StrategyComponent implements OnInit {
           this.financeData = res['resultInfo']['day'];
         } else if (this.peiziData.type === '1') {
           this.financeData = res['resultInfo']['week'];
-        } else {
+        } else if (this.peiziData.type === '2') {
           this.financeData = res['resultInfo']['month'];
+        } else {
+          this.financeData = res['resultInfo']['single'];
         }
         this.financeData.forEach(element => {
           if (element['financeRatio'] === this.peiziData.mulType) {
@@ -68,6 +70,7 @@ export class StrategyComponent implements OnInit {
       amount: this.peiziData.money
     };
     this.http.getManagerFee2(manageFee).subscribe(res2 => {
+      console.log('值',res2)
       this.manageFee = res2['resultInfo']['amount'];
     });
     this.info.jjje = this.info.cpje * this.peiziData.cordonLineRate;
@@ -120,6 +123,7 @@ export class StrategyComponent implements OnInit {
   }
 
   submitAlert() {
+    console.log('值1',this.strategyType,this.info.fwf,this.manageFee)
     const serviceFee = this.strategyType === '0' ? this.info.fwf : this.manageFee;
     layer.open({
       content: `<p>保证金：${this.info.bzj}</p><p>服务费：${serviceFee}</p>
@@ -167,6 +171,7 @@ export class StrategyComponent implements OnInit {
           this.data.goto('recharge');
         }, 1000);
       } else {
+        console.log('我是这个day值', this.dateText)
         const data = {
           newStrategy: res['allottedScale'] !== '0' ? false : true,
           financeRatio: this.peiziData.mulType,

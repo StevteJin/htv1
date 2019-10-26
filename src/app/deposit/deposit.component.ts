@@ -81,8 +81,10 @@ export class DepositComponent implements OnInit, OnDestroy {
         this.financeData = this.staticData['day'];
       } else if (this.data.getSession('zixuanId') === '1') {
         this.financeData = this.staticData['week'];
-      } else {
+      } else if(this.data.getSession("zixuanId")==="2") {
         this.financeData = this.staticData['month'];
+      }else{
+        this.financeData = this.staticData['single'];
       }
       this.finance();
       if (this.userInfo.allottedScale === '0') {
@@ -139,6 +141,7 @@ export class DepositComponent implements OnInit, OnDestroy {
   }
 
   goto(id, mul, fee) {
+    console.log('我是',id)
     if (!this.data.isNull(this.data.getSession('opUserCode'))) {
       if (this.judge()) {
         const data = {
@@ -185,8 +188,10 @@ export class DepositComponent implements OnInit, OnDestroy {
         this.financeData = this.staticData['day'];
       } else if (id === 1) {
         this.financeData = this.staticData['week'];
-      } else {
+      } else if(id===2) {
         this.financeData = this.staticData['month'];
+      }else {
+        this.financeData = this.staticData['single'];
       }
       if (!this.data.isNull(this.financeData)) {
         this.finance();
@@ -213,6 +218,8 @@ export class DepositComponent implements OnInit, OnDestroy {
           case 'month':
             this.type = 2;
             break;
+          case 'single':
+            this.type = 3;
           default:
             break;
         }

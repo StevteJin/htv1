@@ -11,7 +11,7 @@
   </div>
 </div> -->
 <div class="strategy-tabs">
-  <div *ngFor="let item of typeList" (click)='selectType(item.id,item.money)' [class]="item.id==type?'tabsActive':'tabsbox'">
+  <div *ngFor="let item of typeList" (click)='selectType(item.id,item.money)' class="tabsActive">
     <!-- <div class="num">{{item.num}}</div>
     <div class="interest">{{item.date}}利息{{item.money}}元</div> -->
     <div class="num"></div><br />
@@ -43,7 +43,7 @@
     <!-- <p class='p-first'>
       请选择杠杆
     </p> -->
-    <div class='multiple-div {{detail.length == 1?"singleDiv":""}}'>
+    <div class='multiple-div'>
       <ng-container *ngFor="let item of detail">
         <div (click)='goto(item.id,item.mul,item.financeFeeRate)' class="multiple-item" [ngClass]="mulType == item.mul?'multiple-active':''">
           <div class="title">放大倍数</div>

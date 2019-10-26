@@ -25,7 +25,8 @@ export class UserDetailComponent implements OnInit {
   type = {
     day: '日配',
     month: '月配',
-    week: '周配'
+    week: '周配',
+    single: '单票免息'
   };
   logo = '';
   constructor(public data: DataService, public http: HttpService) {
