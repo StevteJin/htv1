@@ -23,10 +23,10 @@ export class UserDetailComponent implements OnInit {
     secondBoardPositionRatio: 0
   };
   type = {
-    day: '日配',
-    month: '月配',
+    day: '按使用金额收取固定收益',
+    month: '按申请金额收取固定收益',
     week: '周配',
-    single: '单票免息'
+    single: '按个股盈利分成'
   };
   logo = '';
   constructor(public data: DataService, public http: HttpService) {
