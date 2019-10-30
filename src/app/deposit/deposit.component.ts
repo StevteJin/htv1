@@ -55,6 +55,7 @@ export class DepositComponent implements OnInit, OnDestroy {
   weekFinace = [];
   monthFinace = [];
   staticData = [];
+  nameMsg:any;
   constructor(public data: DataService, public http: HttpService, public activeRoute: ActivatedRoute) {
     this.type = this.data.getSession('zixuanId');
     this.logo = this.data.logo;
@@ -79,12 +80,15 @@ export class DepositComponent implements OnInit, OnDestroy {
       this.staticData = res['resultInfo'];
       if (this.data.getSession('zixuanId') === '0') {
         this.financeData = this.staticData['day'];
+        this.nameMsg='按使用金额收取固定收益';
       } else if (this.data.getSession('zixuanId') === '1') {
         this.financeData = this.staticData['week'];
       } else if(this.data.getSession("zixuanId")==="2") {
         this.financeData = this.staticData['month'];
+        this.nameMsg='按申请金额收取固定收益'
       }else{
         this.financeData = this.staticData['single'];
+        this.nameMsg='按个股盈利分成';
       }
       this.finance();
       if (this.userInfo.allottedScale === '0') {

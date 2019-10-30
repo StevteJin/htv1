@@ -15,7 +15,7 @@
     <!-- <div class="num">{{item.num}}</div>
     <div class="interest">{{item.date}}利息{{item.money}}元</div> -->
     <div class="num"></div><br />
-    <div class="interest">按使用金额计息</div>
+    <div class="interest">{{nameMsg}}</div>
     <div class="amount-num">{{item.amount}}元起</div>
     <!-- <div>—</div> -->
   </div>
@@ -37,8 +37,8 @@
       <input type="number" [(ngModel)]="money">
     </div>
     <div class='flex-btn' *ngIf="userInfo.allottedScale !== '0'">
-      <button (click)='add(true)'>增配</button>
-      <button (click)='add(false)'>非增配</button>
+      <button (click)='add(true)'>增加可用额</button>
+      <button (click)='add(false)'>补仓</button>
     </div>
     <!-- <p class='p-first'>
       请选择杠杆
