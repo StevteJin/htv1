@@ -14,6 +14,25 @@ export class ChicangComponent implements OnInit {
   isJiaoyi: any;
   freezaFee: any;
   url:any;
+  detail = {
+    cashScale: 0,
+    commission: 0,
+    cordonLine: 0,
+    financePeriod: 'day',
+    financeRatio: 0,
+    financeStartDate: '',
+    flatLine: 0,
+    manageFeeRate: 0,
+    manageMakeFeeRate: 0,
+    opUserCode: '',
+    positionRatio: 0,
+    secondBoardPositionRatio: 0
+  };
+  data1: any;
+  data2: any;
+  data3: any;
+  width1: any;
+  width2: any;
   constructor(public data: DataService, public http: HttpService,private routeInfo: ActivatedRoute) { 
   }
 
@@ -23,6 +42,17 @@ export class ChicangComponent implements OnInit {
     } else {
       this.isJiaoyi = true;
     }
+    this.http.userDetail().subscribe(res => {
+      Object.assign(this.detail, res);
+      console.log('我是个人详情', this.detail)
+      //平仓线
+      this.data1 = this.detail.flatLine;
+      //预警线
+      this.data2 = this.detail.cordonLine;
+    }, (err) => {
+      this.data.error = err.error;
+      this.data.isError();
+    });
     this.userInfo = this.data.userInfo;
     this.usercenter();
     this.url=window.location.href.split('#')[1];
@@ -40,6 +70,15 @@ export class ChicangComponent implements OnInit {
   usercenter() {
     this.http.userCenter().subscribe((res: DataService['userInfo']) => {
       this.userInfo = res;
+      this.data3 = this.userInfo.totalScale;
+      console.log('我是总资产', this.data3);
+      console.log('我', this.userInfo)
+      this.width1 = (this.data1 / this.data3) * 100 + '%';
+      this.width2 = (this.data2 / this.data3) * 100+5 + '%';
+      console.log('宽度1', this.width1)
+      console.log('宽度2',this.width2)
+      document.getElementById('data1').style.width = this.width1;
+      document.getElementById('data2').style.width = this.width2;
       this.freezaFee = parseFloat(this.userInfo.lockScale) + parseFloat(this.userInfo.freezeScale);
       this.data.intervalCapital = setTimeout(() => {
         this.usercenter();

@@ -1,6 +1,18 @@
 <div class="navigation" *ngIf="!isJiaoyi">
   <p class="navigation-title">资产</p>
 </div>
+<div class="progressBox">
+  <div id="myProgress">
+    <div id="data1">
+      <span class="p1">平仓线{{data1}}</span>
+    </div>
+    <div id="data2">
+      <span class="p2">预警线{{data2}}</span>
+    </div>
+    <div id="yuan"></div>
+  </div>
+  <span class="zong">总资产{{data3}}</span>
+</div>
 <div class="chedang-big-div">
   <div [class]='url == "/main/chicang"?"chedang-div-active":"chedang-div"'>
     <div class="chedan">
