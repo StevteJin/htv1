@@ -13,6 +13,9 @@
       <td>
         参考成本/现价
       </td>
+      <td>
+        浮动盈亏
+      </td>
     </tr>
     <tr *ngFor='let a of list' (click)='select(a)'>
       <td>
@@ -38,6 +41,11 @@
         <p>
           {{a.lastPrice | round4}}
         </p>
+      </td>
+      <!--参考盈亏/(持仓*参考成本)-->
+      <td class="{{a.profit < 0?'green':'red'}}">
+        <p>{{a.profit}}</p>
+        <p>{{(a.profit /(a.stockCnt*a.costPrice))*100 | round4}}%</p>
       </td>
     </tr>
   </table>
