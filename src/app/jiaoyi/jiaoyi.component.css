@@ -13,61 +13,60 @@
 #myProgress {
     width: 90vw;
     margin-left: 5vw;
-    height: 5px;
-    background-color: rgb(33, 175, 79);
+    height: 6px;
+    background-color: #5473FF;
     position: relative;
+    border-radius: 3px;
 }
 
 #data1 {
-    width: 10%;
-    height: 5px;
-    background-color: rgb(253, 91, 95);
+    height: 6px;
+    background-color: #F05330;
     text-align: center;
     color: #000;
     position: absolute;
     left: 0px;
     z-index: 2000;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 #data2 {
-    width: 30%;
-    height: 5px;
-    background-color: rgb(249, 238, 64);
+    height: 6px;
+    background-color: #FFB954;
     text-align: center;
     color: #000;
     position: absolute;
     left: 0px;
-}
-
-#yuan {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgb(33, 175, 79);
-    position: absolute;
-    right: -5px;
-    top: -2.5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .p1 {
-    display: inline-block;
-    position: absolute;
-    right: -30px;
-    top: 12px;
+    float: left;
     font-size: 12px;
     width: 120px;
-    text-align: right;
+    margin-left: 20px;
+    margin-top: 8px;
+    color: #8E9399;
+}
+
+.p1 .s1 {
+    color: #F05330;
 }
 
 .p2 {
-    display: inline-block;
-    margin-top: -5px;
+    float: left;
     position: absolute;
-    right: -30px;
-    top: -20px;
     font-size: 12px;
     width: 120px;
-    text-align: right;
+    margin-left: 20px;
+    margin-top: -24px;
+    color: #8E9399;
+}
+
+.p2 .s2 {
+    color: #FFB954
 }
 
 .zong {
@@ -75,4 +74,9 @@
     margin-right: 5vw;
     font-size: 12px;
     margin-top: 8px;
+    color: #8E9399;
+}
+
+.zong .s3 {
+    color: #5473FF;
 }

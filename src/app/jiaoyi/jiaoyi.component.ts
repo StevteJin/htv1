@@ -51,12 +51,12 @@ export class JiaoyiComponent implements DoCheck {
       this.data1 = this.detail.flatLine;
       //预警线
       this.data2 = this.detail.cordonLine;
+      this.userInfo = this.data.userInfo;
+      this.usercenter();
     }, (err) => {
       this.data.error = err.error;
       this.data.isError();
     });
-    this.userInfo = this.data.userInfo;
-    this.usercenter();
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
@@ -72,12 +72,27 @@ export class JiaoyiComponent implements DoCheck {
       this.data3 = this.userInfo.totalScale;
       console.log('我是总资产', this.data3);
       console.log('我', this.userInfo)
-      this.width1 = (this.data1 / this.data3) * 100 + '%';
-      this.width2 = (this.data2 / this.data3) * 100+5 + '%';
+      if ((this.data2 / this.data3) * 100 < 50) {
+        this.width1 = (this.data1 / this.data3) * 100 + '%';
+        this.width2 = (this.data2 / this.data3) * 100 + 5 + '%';
+      } else if ((this.data2 / this.data3) * 100 > 80) {
+        this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
+        this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
+      }else{
+        this.width1 = (this.data1 / this.data3) * 100  + '%';
+        this.width2 = (this.data2 / this.data3) * 100 + '%';
+      }
+      console.log('数据1', this.data1);
+      console.log('数据2', this.data2);
+      console.log('数据3', this.data3);
       console.log('宽度1', this.width1)
-      console.log('宽度2',this.width2)
-      document.getElementById('data1').style.width = this.width1;
-      document.getElementById('data2').style.width = this.width2;
+      console.log('宽度2', this.width2)
+      if (document.getElementById('data1')) {
+        document.getElementById('data1').style.width = this.width1;
+      }
+      if (document.getElementById('data2')) {
+        document.getElementById('data2').style.width = this.width2;
+      }
       this.data.intervalCapital = setTimeout(() => {
         this.usercenter();
       }, 60000);
