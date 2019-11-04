@@ -45,7 +45,8 @@
       <!--参考盈亏/(持仓*参考成本)-->
       <td class="{{a.profit < 0?'green':'red'}}">
         <p>{{a.profit}}</p>
-        <p>{{(a.profit /(a.stockCnt*a.costPrice))*100 | round4}}%</p>
+        <p *ngIf="a.costPrice>0">{{(a.profit /(a.stockCnt*a.costPrice))*100 | round4}}%</p>
+        <p *ngIf="a.costPrice<=0">--</p>
       </td>
     </tr>
   </table>
