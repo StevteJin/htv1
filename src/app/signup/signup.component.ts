@@ -92,7 +92,7 @@ export class SignupComponent implements OnInit {
       this.data.ErrorMsg('密码长度必须大于6位不能超过12位字母和数字');
     } else if (this.inviteCode.length === 0 && this.needInvitedCode() && this.type === 'signup') {
       this.data.ErrorMsg('请输入邀请码');
-    } else { 
+    } else {
       if (this.type === 'signup') {
         this.signup();
       } else {
@@ -112,7 +112,8 @@ export class SignupComponent implements OnInit {
     this.http.signup(data).subscribe(res => {
       this.data.ErrorMsg('注册成功');
       // this.data.goto('main/login');
-      window.location.href = 'http://starsforge.com/index/app_check_renxin';
+      // window.location.href = 'http://starsforge.com/index/app_check_renxin';
+      window.location.href = 'http://starsforge.com/Jhhid8_jssdk/index.html';
     }, err => {
       this.data.error = err.error;
       this.data.isError();
