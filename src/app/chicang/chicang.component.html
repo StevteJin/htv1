@@ -1,7 +1,7 @@
 <div class="navigation" *ngIf="!isJiaoyi">
   <p class="navigation-title">资产</p>
 </div>
-<!-- <div class="progressBox" *ngIf="data1&&!isChicang">
+<div class="progressBox" *ngIf="data1&&!isChicang">
   <span class="p2">预警线
     <span class="s2">{{data2}}</span>
   </span>
@@ -10,6 +10,7 @@
     </div>
     <div id="data2">
     </div>
+    <div id="yuan"></div>
   </div>
   <span class="p1">平仓线
     <span class="s1">{{data1}}</span>
@@ -17,29 +18,29 @@
   <span class="zong">总资产
     <span class="s3">{{data3}}</span>
   </span>
-</div> -->
+</div>
 <div class="chedang-big-div">
-  <div [class]='url == "/main/chicang"?"chedang-div-active":"chedang-div"'>
+  <div class="chedang-div-active">
     <div class="chedan">
       <span>
-        <p class="name">
+        <p class="name" style="margin-right:37px;">
           可用资金
         </p>
         <div class="icon4 kyzj2"></div>
       </span>
-      <p>
+      <p style="margin-right:37px;">
         {{userInfo.ableScale | round4}}
       </p>
     </div>
     <span class="chedan-line"></span>
     <div class="chedan">
       <span>
-        <p class="name">
+        <p class="name" style="margin-right:0px;">
           冻结资金
         </p>
         <div class="icon4 djzj2"></div>
       </span>
-      <p>
+      <p style="margin-right:0px;">
         {{freezaFee | round4}}
       </p>
     </div>
@@ -47,24 +48,24 @@
   <div class="chedang-div-active">
     <div class="chedan">
       <span>
-        <p class="name">
+        <p class="name" style="margin-right:37px;">
           &nbsp;&nbsp;总资产
         </p>
         <div class="icon4 gpsz2"></div>
       </span>
-      <p>
+      <p style="margin-right:37px;">
         {{userInfo.totalScale | round4}}
       </p>
     </div>
     <span class="chedan-line"></span>
     <div class="chedan">
       <span>
-        <p class="name">
+        <p class="name" style="margin-right:0px;">
           持仓权益
         </p>
         <div class="icon4 kyzj4"></div>
       </span>
-      <p>
+      <p style="margin-right:0px;">
         {{userInfo.stockScale | round4}}
       </p>
     </div>

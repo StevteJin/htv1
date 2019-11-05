@@ -1,52 +1,52 @@
 <div class="chedang-big-div">
-  <div class="chedang-div">
+  <div class="chedang-div-active">
     <div class="chedan">
-      <div class="icon4 kyzj2"></div>
       <span>
-        <p>
-          {{userInfo.ableScale | round4}}
-        </p>
-        <p class="name">
+        <p class="name" style="margin-right:37px;">
           可用资金
         </p>
+        <div class="icon4 kyzj2"></div>
       </span>
+      <p style="margin-right:37px;">
+        {{userInfo.ableScale | round4}}
+      </p>
     </div>
     <span class="chedan-line"></span>
     <div class="chedan">
-      <div class="icon4 djzj2"></div>
       <span>
-        <p>
-          {{freezaFee | round4}}
-        </p>
-        <p class="name">
+        <p class="name" style="margin-right:0px;">
           冻结资金
         </p>
+        <div class="icon4 djzj2"></div>
       </span>
+      <p style="margin-right:0px;">
+        {{freezaFee | round4}}
+      </p>
     </div>
   </div>
-  <div class="chedang-div">
+  <div class="chedang-div-active">
     <div class="chedan">
-      <div class="icon4 gpsz2"></div>
       <span>
-        <p>
-          {{userInfo.totalScale | round4}}
+        <p class="name" style="margin-right:37px;">
+          &nbsp;&nbsp;总资产
         </p>
-        <p class="name">
-          总资产
-        </p>
+        <div class="icon4 gpsz2"></div>
       </span>
+      <p style="margin-right:37px;">
+        {{userInfo.totalScale | round4}}
+      </p>
     </div>
     <span class="chedan-line"></span>
     <div class="chedan">
-      <div class="icon4 kyzj4"></div>
       <span>
-        <p>
-          {{userInfo.stockScale | round4}}
-        </p>
-        <p class="name">
+        <p class="name" style="margin-right:0px;">
           持仓权益
         </p>
+        <div class="icon4 kyzj4"></div>
       </span>
+      <p style="margin-right:0px;">
+        {{userInfo.stockScale | round4}}
+      </p>
     </div>
   </div>
 </div>
@@ -69,8 +69,8 @@
     <tr (click)='chedan(a)' *ngFor='let a of list'>
       <td style="text-align: left;padding-left: 24px;position: relative;">
         <!-- <span class="span {{a.appointType == 2?'blue':''}}">{{a.appointType == 1?'买':'卖'}}</span> -->
-        <img src="./assets/images/buy.png" *ngIf="a.appointType === 1" class="buy-sell"/>
-        <img src="./assets/images/sell.png" *ngIf="a.appointType === 2" class="buy-sell"/>
+        <img src="./assets/images/buy.png" *ngIf="a.appointType === 1" class="buy-sell" />
+        <img src="./assets/images/sell.png" *ngIf="a.appointType === 2" class="buy-sell" />
         <p style="font-weight:bold;font-size:14px;">
           {{a.stockName}}
         </p>
