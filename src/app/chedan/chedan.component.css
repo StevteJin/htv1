@@ -223,7 +223,7 @@
 .p1 {
     float: left;
     font-size: 12px;
-    width: 120px;
+    width: auto;
     margin-left: 20px;
     margin-top: 8px;
     color: #8E9399;
@@ -237,7 +237,7 @@
     float: left;
     position: absolute;
     font-size: 12px;
-    width: 120px;
+    width: auto;
     margin-left: 20px;
     margin-top: -24px;
     color: #8E9399;
