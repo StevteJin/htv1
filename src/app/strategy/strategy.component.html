@@ -55,6 +55,14 @@
           {{manageFee}}元
         </span>
       </div>
+      <div class="list-item" *ngIf="typetype==3">
+        <span class="list-item-name">
+          分成比例
+        </span>
+        <span class="list-item-content">
+          {{addNum(separateFeeRate)}}%
+        </span>
+      </div>
       <div class="list-item" (click)='alert(0)'>
         <span class="list-item-name">
           警戒线

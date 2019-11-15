@@ -24,6 +24,8 @@ export class StrategyComponent implements OnInit {
   dateText = 'day';
   financeFee = 0;
   makeFeeRate = 0;
+  separateFeeRate: string = '';
+  typetype: any;
   isAdd: any;
   financeData = [];
   dayType = ['day', 'week', 'month', 'single'];
@@ -35,9 +37,12 @@ export class StrategyComponent implements OnInit {
     this.peiziData = JSON.parse(this.data.getSession('strategyData'));
     console.log('我是数据', this.peiziData);
     this.strategyType = this.peiziData.type;
+    this.typetype = this.data.getSession("zixuanId");
+    console.log('我是方式', this.data.getSession("zixuanId"))
     if (this.isAdd === 'true') {
       this.http.userDetail().subscribe(res => {
         console.log('我', res);
+        this.separateFeeRate = res['separateFeeRate'];
         this.info.fwf = (Math.round(res['manageMakeFeeRate'] * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
       });
     } else {
@@ -52,10 +57,12 @@ export class StrategyComponent implements OnInit {
         } else {
           this.financeData = res['resultInfo']['single'];
         }
+
         this.financeData.forEach(element => {
           if (element['financeRatio'] === this.peiziData.mulType) {
             this.financeFee = element['financeFeeRate'];
             this.makeFeeRate = element['makeFeeRate'];
+            this.separateFeeRate = element['separateFeeRate'];
             this.info.fwf = (Math.round(this.makeFeeRate * this.peiziData.mulType * this.peiziData.money * 100) / 100).toFixed(2);
           }
         });
@@ -107,13 +114,13 @@ export class StrategyComponent implements OnInit {
       <br>4.客户有停牌股票，可以继续支付账户管理费延续账户直至停牌结束，
       并在停牌股票持有的当天算起3天内追加停牌股票市值30%的保证金；<br>
       <br>5.客户有停牌股票，不再补缴保证金，且不支付账户管理费，
-      默认为放弃该账户权益，账户盈亏和客户无关，不退还任何资金；<br>6.操盘手提供劣后资金，可用资金为资金方提供的授信可用优先资金，当后台账户资不够时，即使操盘人在可用资金额度内提交新的买入委托可能会出现买入失败。
+      默认为放弃该账户权益，账户盈亏和客户无关，不退还任何资金；<br><br>6.操盘手提供劣后资金，可用资金为资金方提供的授信可用优先资金，当后台账户资不够时，即使操盘人在可用资金额度内提交新的买入委托可能会出现买入失败；
       <br><br>
-      7.合作过程中出现亏损全部由操盘手负责并从劣后资金中扣除，如果劣后资金不够扣除亏损则由操盘手日内补足
+      7.合作过程中出现亏损全部由操盘手负责并从劣后资金中扣除，如果劣后资金不够扣除亏损则由操盘手日内补足；
       <br><br>
       8.利润分配：合作期间按个股盈利分成，账户持有个股在卖出时有盈利则分，无盈利则不分成；
       <br><br>
-      9.结算期限及费用：免息日结算前清仓的，不收取管理费，如到时操盘手未清仓的，资金方将按天收取持仓市值的管理费。
+      9.结算期限及费用：免息日结算前清仓的，不收取管理费，如到时操盘手未清仓的，资金方将按天收取持仓市值的管理费；
       <br>
       </div>
       `

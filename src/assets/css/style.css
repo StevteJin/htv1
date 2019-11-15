@@ -1,38 +1,4 @@
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-a,
-code,
-em,
-img,
-q,
-small,
-strong,
-dd,
-dl,
-dt,
-li,
-ol,
-ul,
-fieldset,
-form,
-label,
-table,
-tbody,
-tr,
-th,
-td,
-input {
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, code, em, img, q, small, strong, dd, dl, dt, li, ol, ul, fieldset, form, label, table, tbody, tr, th, td, input {
     margin: 0;
     padding: 0;
     border: 0;
@@ -44,8 +10,7 @@ input {
     background-color: #ffffff;
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -53,6 +18,7 @@ body {
     color: #373737;
     background: #f6f6f6;
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .Body {
@@ -422,12 +388,10 @@ table td p {
 }
 
 @media screen and (max-width: 320px) {
-    body,
-    html {
+    body, html {
         font-size: 12px;
     }
 }
-
 
 /* bandcard */
 
@@ -1051,6 +1015,5 @@ table td p {
         margin: 0 9px;
     }
 }
-
 
 /* bandcard */
