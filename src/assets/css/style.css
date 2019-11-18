@@ -18,7 +18,7 @@ html, body {
     color: #373737;
     background: #f6f6f6;
     overflow: hidden;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .Body {
@@ -53,11 +53,15 @@ input:read-only {
 }
 
 .navigation-title {
-    margin: 0;
-    position: absolute;
+    margin-bottom: 44px;
+    position: fixed;
+    top:0px;
+    left:0px;
     width: 100vw;
+    height:44px;
     font-size: 18px;
     color: #5A5B65;
+    background-color:#fff;
 }
 
 table td p {
@@ -469,7 +473,7 @@ table td p {
 
 .footer1 {
     text-align: center;
-    position: fixed;
+    position: fixed!important;
     bottom: 0;
     z-index: 10;
     background: #fff;
