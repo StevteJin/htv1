@@ -5,17 +5,18 @@
 .content-title {
     font-size: .9rem;
     width: 100%;
-    float: left;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
 }
 
 .content-info {
     font-size: .8rem;
     color: #868686;
-    float: left;
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 .swiper-container {
@@ -51,6 +52,7 @@
 
 .news {
     background: #fff;
+    min-height: 200px;
 }
 
 .news-title1 {
@@ -74,6 +76,7 @@
 
 .news-title {
     height: 40px;
+    border-bottom: 1px solid rgb(246, 246, 246);
 }
 
 .news-title img {
@@ -100,16 +103,16 @@
 }
 
 .newsbox {
-    float: left;
-    width: 70%;
+    width: 100%;
     position: relative;
+    height: 60px;
 }
 
 #scrollBox {
     position: absolute;
-    left: 40px;
+    left: 0px;
     top: 0;
-    width: 90%;
+    width: 100%;
 }
 
 .scroll_top {
@@ -120,12 +123,15 @@
 .news-content {
     /* overflow: hidden; */
     min-width: 100%;
-    height: 30px;
-    line-height: 30px;
+    border-bottom: 1px solid rgb(246, 246, 246);
+    overflow: hidden;
+    height: 60px;
 }
 
-.news-content * {
-    float: left;
+.news-content * {}
+
+.news-content:last-child {
+    border-bottom: none;
 }
 
 .new-zixun {
