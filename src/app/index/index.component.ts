@@ -40,10 +40,10 @@ export class IndexComponent implements OnInit, OnDestroy {
   title = [{
     id: 0,
     text: '按日结算'
-  },{
+  }, {
     id: 3,
     text: '合作分成'
-  },{
+  }, {
     id: 2,
     text: '按月结算'
   }];
@@ -61,9 +61,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     style: 'span1',
     btns: 'btn1',
     text1: '按日结算',
-    zhongText:'按使用金额收取固定收益',
-    diText:'无资金限制'
-  },{
+    zhongText: '按使用金额收取固定收益',
+    diText: '无资金限制'
+  }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
     id: 3,
@@ -77,9 +77,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     style: 'span1',
     btns: 'btn1',
     text1: '合作分成',
-    zhongText:'按个股盈利分成',
-    diText:'无资金限制'
-  },{
+    zhongText: '按个股盈利分成',
+    diText: '无资金限制'
+  }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
     id: 2,
@@ -93,8 +93,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     style: 'span1',
     btns: 'btn1',
     text1: '按月结算',
-    zhongText:'按申请金额收取固定收益',
-    diText:'1000元起'
+    zhongText: '按申请金额收取固定收益',
+    diText: '1000元起'
   }];
   maxMul: 0;
   minMul: 0;
@@ -108,6 +108,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   newsContent: object;
   pageNum: object = [1, 2, 3, 4, 5];
   page: any = 1;
+  addId: any = 0;
   locked: boolean = false;
   constructor(public data: DataService, public http: HttpService) {
     this.logo = this.data.logo;
@@ -140,6 +141,10 @@ export class IndexComponent implements OnInit, OnDestroy {
     //   scrollBox.style.marginTop = this.size + 'px';
     //   this.showMarquee();
     // }, 3000);
+  }
+  changeId(id) {
+    console.log('我是点击的结果', id)
+    this.addId = id;
   }
   showMarquee() {
     this.flag = true;
