@@ -58,6 +58,7 @@ export class ChicangComponent implements OnInit {
       this.data1 = this.detail.flatLine;
       //预警线
       this.data2 = this.detail.cordonLine;
+      this.data2 = Math.round(this.data2);
       this.usercenter();
     }, (err) => {
       this.data.error = err.error;

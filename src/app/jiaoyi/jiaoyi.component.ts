@@ -51,6 +51,7 @@ export class JiaoyiComponent implements DoCheck {
       this.data1 = this.detail.flatLine;
       //预警线
       this.data2 = this.detail.cordonLine;
+      this.data2 = Math.round(this.data2);
       this.userInfo = this.data.userInfo;
       this.usercenter();
     }, (err) => {
@@ -78,8 +79,8 @@ export class JiaoyiComponent implements DoCheck {
       } else if ((this.data2 / this.data3) * 100 > 80) {
         this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
         this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
-      }else{
-        this.width1 = (this.data1 / this.data3) * 100  + '%';
+      } else {
+        this.width1 = (this.data1 / this.data3) * 100 + '%';
         this.width2 = (this.data2 / this.data3) * 100 + '%';
       }
       console.log('数据1', this.data1);
