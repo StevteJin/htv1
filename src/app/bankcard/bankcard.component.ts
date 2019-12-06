@@ -39,12 +39,13 @@ export class BankcardComponent implements OnInit {
     const date = this.data.getTime('yyyy-MM-ddhh:mm:ss', new Date());
     this.http.getPayCardInfo().subscribe(res => {
       this.cardInfro = Object.assign(this.cardInfro, res);
-      this.remark = `用户：${this.data.getSession('opUserCode')} 姓名：${this.userName} 在 ${date} 充值 ${this.amount} 元`;
+      // this.remark = `用户：${this.data.getSession('opUserCode')} 姓名：${this.userName} 在 ${date} 充值 ${this.amount} 元`;
+      this.remark = `用户：${this.data.getSession('opUserCode')} 充值 ${this.amount} 元`;
       const qrcode = new QRCode('qrcode', {
-        width: 100,
-        height: 100
+        width: 90,
+        height: 90
       });
-      qrcode.makeCode('https://'+this.cardInfro.aliyPayCodeUrl.split('//')[1]);
+      qrcode.makeCode('https://' + this.cardInfro.aliyPayCodeUrl.split('//')[1]);
     }, err => {
       this.data.error = err.error;
       this.data.isError();

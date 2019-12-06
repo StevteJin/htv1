@@ -369,7 +369,7 @@ export class DataService {
     this.alert = true;
     setTimeout(() => {
       this.alert = false;
-    }, 5000);//原先2秒，212客户说改成5秒
+    }, 2000);//原先2秒，212客户说改成5秒
     this.errMsg = this.error.resultInfo;
     if (this.error.resultCode === 'token.error') {
       this.removeSession('token');
