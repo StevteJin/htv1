@@ -34,6 +34,7 @@ export class ChicangComponent implements OnInit {
   data3: any;
   width1: any;
   width2: any;
+  id: any;
   constructor(public data: DataService, public http: HttpService, private routeInfo: ActivatedRoute) {
   }
 
@@ -81,6 +82,27 @@ export class ChicangComponent implements OnInit {
   usercenter() {
     this.http.userCenter().subscribe((res: DataService['userInfo']) => {
       this.userInfo = res;
+      let idName = this.userInfo.financePeriod;
+      console.log('我存在吗',idName);
+      if (!idName) {
+        this.id='noway';
+      } else {
+        switch (idName) {
+          case 'day':
+            this.id = 0;
+            break;
+          case 'week':
+            this.id = 1;
+            break;
+          case 'month':
+            this.id = 2;
+            break;
+          case 'single':
+            this.id = 3;
+          default:
+            break;
+        }
+      }
       this.data3 = this.userInfo.totalScale;
       console.log('我是总资产', this.data3);
       console.log('我', this.userInfo)
@@ -112,5 +134,12 @@ export class ChicangComponent implements OnInit {
     }, () => {
       this.data.Loading(this.data.hide);
     });
+  }
+
+  add(type) {
+    let type1 = type;
+    console.log(333);
+    this.data.setSession('zixuanId', this.id);
+    this.data.goto('deposit');
   }
 }
