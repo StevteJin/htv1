@@ -3,7 +3,7 @@
     <p class="title">{{type == 'signup'?'注册':'找回密码'}}</p>
     <p class="smalltitle">Welcome to {{type == 'signup'?'signup':'retrieve password'}}</p>
     <div class="login-input " *ngIf="type == 'signup'">
-      <input type="text" placeholder="昵称" maxlength="11" [(ngModel)]='userName'>
+      <input type="text" placeholder="姓名" maxlength="11" [(ngModel)]='userName'>
     </div>
     <div class="login-input">
       <input type="text" placeholder="手机号码" maxlength="11" [(ngModel)]='phone'>

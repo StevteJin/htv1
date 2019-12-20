@@ -87,7 +87,7 @@ export class StrategyComponent implements OnInit {
     this.data.back();
   }
   addNum(num) {
-    return num * 100
+    return (num * 100).toFixed(2)
   }
   alert(type) {
     let msg = '';

@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit {
 
   submit() {
     if (this.userName.length === 0 && this.type === 'signup') {
-      this.data.ErrorMsg('请输入昵称');
+      this.data.ErrorMsg('请输入姓名');
     } else if (this.phone.length !== 11) {
       this.data.ErrorMsg('请输入正确的手机号码');
     } else if (this.code.length === 0) {

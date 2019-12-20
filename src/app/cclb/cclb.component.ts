@@ -11,7 +11,7 @@ export class CclbComponent implements OnInit {
   list: any;
   isJiaoyi: any;
   url1: any = 1;
-  bList: any = [{ id: 1, name: '合并持仓' }, { id: 2, name: '分笔持仓' }];
+  bList: any = [{ id: 1, name: '合并持仓' }, { id: 2, name: '逐笔持仓' }];
   constructor(public data: DataService, public http: HttpService) { }
 
   ngOnInit() {
