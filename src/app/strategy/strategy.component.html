@@ -36,7 +36,7 @@
           建仓费率
         </span>
         <span class="list-item-content">
-          {{addNum(makeFeeRate)}}%
+          {{makeFeeRate}}
         </span>
       </div>
       <div class="list-item">
@@ -44,7 +44,7 @@
           管理费率
         </span>
         <span class="list-item-content">
-          {{addNum(financeFee)}}%
+          {{financeFee}}
         </span>
       </div>
       <div class="list-item" *ngIf="strategyType !== '0'">
@@ -60,7 +60,7 @@
           分成比例
         </span>
         <span class="list-item-content">
-          {{addNum(separateFeeRate)}}%
+          {{separateFeeRate}}%
         </span>
       </div>
       <div class="list-item" (click)='alert(0)'>
