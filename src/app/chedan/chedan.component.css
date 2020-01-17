@@ -131,7 +131,6 @@
 
 .cclb {
     background: #fff;
-    margin-top: 5px;
     margin-bottom: 30px;
 }
 
@@ -303,5 +302,36 @@
 .addTBox .right img {
     width: 12px;
     margin-top: 19px;
+    margin-right: 11px;
+}
+
+.cclb .boxtitle {
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    border-bottom: 5px solid #F6F6F6;
+    vertical-align: middle;
+}
+
+.cclb .boxtitle .b1 {
+    float: left;
+    width: 13.5px;
+    height: 13.5px;
+    margin-left: 15px;
+    margin-top: 17px;
+}
+
+.cclb .boxtitle .b2 {
+    float: left;
+    line-height: 45px;
+    margin-left:21px;
+    font-size:14px;
+}
+
+.cclb .boxtitle .b3 {
+    float: right;
+    width: 6px;
+    height: 11px;
+    margin-top: 18px;
     margin-right: 15px;
 }

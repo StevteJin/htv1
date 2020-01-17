@@ -58,6 +58,7 @@ export class JiaoyiComponent implements DoCheck {
       this.data.error = err.error;
       this.data.isError();
     });
+    this.url=localStorage.getItem('newurl');
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
@@ -115,6 +116,7 @@ export class JiaoyiComponent implements DoCheck {
       this.data.resetStockHQ();
       this.data.removeSession('optionCode');
       this.url = url;
+      localStorage.setItem('newurl',url);
       this.data.goto('main/jiaoyi/' + url);
     }
 

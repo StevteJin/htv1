@@ -1,9 +1,14 @@
 <div class="date-div">
   <span>查询日期</span>
   <input type="date" name="" id="" (change)='change()' [(ngModel)]="date">
-  <span class="date-span" >{{date}}</span>
+  <span class="date-span">{{date}}</span>
 </div>
 <div class="cclb">
+  <div class="boxtitle" (click)='gotonew()'>
+    <img class="b1" src="./assets/images/d161.png" alt="">
+    <span class="b2">数据计算规则</span>
+    <img class="b3" src="./assets/images/d162.png" alt="">
+  </div>
   <table cellspacing="0">
     <tr>
       <td>
@@ -22,8 +27,8 @@
     <tr *ngFor='let a of list' (click)='goto(a)'>
       <td style="text-align: left;padding-left: 24px;position: relative;">
         <!-- <span class="span {{a.appointType == '2'?'blue':''}}">{{a.appointType === 1?'买':'卖'}}</span> -->
-        <img src="./assets/images/buy.png" *ngIf="a.appointType === 1" class="buy-sell"/>
-        <img src="./assets/images/sell.png" *ngIf="a.appointType === 2" class="buy-sell"/>
+        <img src="./assets/images/buy.png" *ngIf="a.appointType === 1" class="buy-sell" />
+        <img src="./assets/images/sell.png" *ngIf="a.appointType === 2" class="buy-sell" />
         <p style="font-weight:bold;font-size:14px;">
           {{a.stockName}}
         </p>
@@ -58,4 +63,3 @@
     </tr>
   </table>
 </div>
-
