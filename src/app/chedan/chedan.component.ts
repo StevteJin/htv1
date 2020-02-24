@@ -114,10 +114,5 @@ export class ChedanComponent implements OnInit {
     }
   }
 
-  gotonew(){
-    console.log(111)
-    this.data.goto('newpage');
-  }
-
 }
 

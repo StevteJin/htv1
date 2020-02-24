@@ -48,8 +48,6 @@ import { DepositComponent } from './deposit/deposit.component';
 import { UserDetailComponent } from './setting/user-detail/user-detail.component';
 //二维码
 import { ErCodeComponet } from './ercode/ercode.component';
-//新页面
-import { NewpageComponet } from './newpage/newpage.component';
 
 /*子路由 start */
 const jiaoyiChildRoutes: Routes = [
@@ -93,7 +91,6 @@ const appRoutes: Routes = [
   { path: 'chart', component: ChartComponent },
   { path: 'usercenter', component: UsercenterComponent },
   { path: 'ercode', component: ErCodeComponet },
-  { path: 'newpage', component: NewpageComponet },
   { path: 'main', component: MainComponent, children: appChildRoutes },
   { path: 'newdetail/:id', component: NewsDetailComponent },
   { path: '', redirectTo: 'main', pathMatch: 'full' }
@@ -139,8 +136,7 @@ const appRoutes: Routes = [
     ResetPwdComponent,
     DepositComponent,
     UserDetailComponent,
-    ErCodeComponet,
-    NewpageComponet
+    ErCodeComponet
   ],
   //imports用来导入module
   imports: [

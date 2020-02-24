@@ -58,7 +58,4 @@ export class CclbComponent implements OnInit {
     }
   }
 
-  gotonew() {
-    this.data.goto('newpage');
-   }
 }
