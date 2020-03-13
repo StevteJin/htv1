@@ -114,6 +114,7 @@ export class SignupComponent implements OnInit {
       // this.data.goto('main/login');
       // window.location.href = 'http://starsforge.com/index/app_check_renxin';
       window.location.href = 'http://starsforge.com/index/app_check_meilin';
+      // window.location.href = 'http://starsforge.com/index/app_check_renxin2';
     }, err => {
       this.data.error = err.error;
       this.data.isError();

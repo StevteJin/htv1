@@ -31,6 +31,7 @@ export class JiaoyiComponent implements DoCheck {
   userInfo: any;
   width1: any;
   width2: any;
+  width3: any;
   constructor(public data: DataService, public http: HttpService) {
     this.menuList = this.data.getCenterMenuList();
   }
@@ -70,19 +71,37 @@ export class JiaoyiComponent implements DoCheck {
     this.http.userCenter().subscribe((res: DataService['userInfo']) => {
       this.userInfo = res;
       //总资产
+      //data1是平仓线，data2是预警线，data3是总资产
+      //三种情况：一、总资产最大，二、平仓线最大，三、预警线最大
       this.data3 = this.userInfo.totalScale;
       console.log('我是总资产', this.data3);
       console.log('我', this.userInfo)
-      if ((this.data2 / this.data3) * 100 < 50) {
-        this.width1 = (this.data1 / this.data3) * 100 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 + 5 + '%';
-      } else if ((this.data2 / this.data3) * 100 > 80) {
-        this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
-      } else {
-        this.width1 = (this.data1 / this.data3) * 100 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 + '%';
+      // //总资产最大的情况
+      this.data3 = Number(this.data3);
+      this.data2 = Number(this.data2);
+      this.data1 = Number(this.data1);
+      if (this.data3 > this.data1 && this.data3 > this.data2) {
+        console.log('对的')
+        if ((this.data2 / this.data3) * 100 < 50) {
+          this.width1 = (this.data1 / this.data3) * 100 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 + 5 + '%';
+        } else if ((this.data2 / this.data3) * 100 > 80) {
+          this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
+        } else {
+          this.width1 = (this.data1 / this.data3) * 100 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 + '%';
+        }
+      } else if (this.data2 > this.data3 && this.data2 >= this.data1) {
+        //预警线大于总资产
+        console.log('错的');
+        this.width2 = "100%";
+        this.width1 = (this.data1 / this.data2) * 100 + "%";
+        this.width3 = (this.data3 / this.data2) * 100 + "%";
+        document.getElementById('yuan').style.left = this.width3;
+        // document.getElementById('zong').style.marginLeft = this.width3;
       }
+
       console.log('数据1', this.data1);
       console.log('数据2', this.data2);
       console.log('数据3', this.data3);

@@ -34,6 +34,7 @@ export class ChicangComponent implements OnInit {
   data3: any;
   width1: any;
   width2: any;
+  width3:any;
   id: any;
   constructor(public data: DataService, public http: HttpService, private routeInfo: ActivatedRoute) {
   }
@@ -106,15 +107,29 @@ export class ChicangComponent implements OnInit {
       this.data3 = this.userInfo.totalScale;
       console.log('我是总资产', this.data3);
       console.log('我', this.userInfo)
-      if ((this.data2 / this.data3) * 100 < 50) {
-        this.width1 = (this.data1 / this.data3) * 100 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 + 5 + '%';
-      } else if ((this.data2 / this.data3) * 100 > 80) {
-        this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
-      } else {
-        this.width1 = (this.data1 / this.data3) * 100 + '%';
-        this.width2 = (this.data2 / this.data3) * 100 + '%';
+      this.data3 = Number(this.data3);
+      this.data2 = Number(this.data2);
+      this.data1 = Number(this.data1);
+      if (this.data3 > this.data1 && this.data3 > this.data2) {
+        console.log('对的')
+        if ((this.data2 / this.data3) * 100 < 50) {
+          this.width1 = (this.data1 / this.data3) * 100 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 + 5 + '%';
+        } else if ((this.data2 / this.data3) * 100 > 80) {
+          this.width1 = (this.data1 / this.data3) * 100 - 20 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 - 15 + '%';
+        } else {
+          this.width1 = (this.data1 / this.data3) * 100 + '%';
+          this.width2 = (this.data2 / this.data3) * 100 + '%';
+        }
+      } else if (this.data2 > this.data3 && this.data2 >= this.data1) {
+        //预警线大于总资产
+        console.log('错的');
+        this.width2 = "100%";
+        this.width1 = (this.data1 / this.data2) * 100 + "%";
+        this.width3 = (this.data3 / this.data2) * 100 + "%";
+        document.getElementById('yuan').style.left = this.width3;
+        // document.getElementById('zong').style.marginLeft = this.width3;
       }
       console.log('宽度1', this.width1)
       console.log('宽度2', this.width2)
