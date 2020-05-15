@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
   phone: string;
   password: string;
   inviteCode: any;
+  byInvite: any;
   text = '';
   code: string;
   userName = '';
@@ -24,6 +25,7 @@ export class SignupComponent implements OnInit {
     this.password = '';
     // this.inviteCode = '1000';183环境的人不要的
     this.inviteCode = '';
+    this.byInvite = '';
     this.text = '获取验证码';
     this.url = window.location.host;
   }
@@ -31,10 +33,12 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     if (window.location.hash.indexOf('?code=') > 0) {
       this.inviteCode = window.location.hash.split('?code=')[1].split('&')[0].replace(/%3D/g, '');
+      this.byInvite = window.location.hash.split('&')[1].split('=')[1].replace(/%3D/g, '') || '';
       this.type = this.data.getUrl(2).split('?code=')[0];
     } else {
       // this.inviteCode = '1000';183环境的人要默认的
       this.inviteCode = '';
+      this.byInvite = '';
       this.type = this.data.getUrl(2);
     }
 
@@ -110,6 +114,16 @@ export class SignupComponent implements OnInit {
       verifyCode: this.code
     };
     this.http.signup(data).subscribe(res => {
+      const data1 = {
+        mobile: this.phone,
+        by_invite: this.byInvite
+      }
+      this.http.signup1(data1).subscribe(res => {
+
+      }, err => {
+        this.data.error = err.error;
+        this.data.isError();
+      });
       this.data.ErrorMsg('注册成功');
       // this.data.goto('main/login');
       // window.location.href = 'http://starsforge.com/index/app_check_renxin';
