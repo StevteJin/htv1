@@ -52,7 +52,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     btn: './assets/images/btn1.png',
     id: 0,
     num: 'NO.1',
-    amount: '无资金限制',
+    amount: '1000元起',
     multiple: '8',
     date: '日',
     money: '3',
@@ -62,13 +62,13 @@ export class IndexComponent implements OnInit, OnDestroy {
     btns: 'btn1',
     text1: '按日结算',
     zhongText: '按使用金额收取固定收益',
-    diText: '无资金限制'
+    diText: '1000元起'
   }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
     id: 3,
     num: 'NO.3',
-    amount: '无资金限制',
+    amount: '1000元起',
     multiple: '8',
     date: '单票',
     money: '3',
@@ -77,14 +77,14 @@ export class IndexComponent implements OnInit, OnDestroy {
     style: 'span1',
     btns: 'btn1',
     text1: '合作分成',
-    zhongText: '按个股盈利分成',
-    diText: '无资金限制'
+    zhongText: '免息盈利分成',
+    diText: '1000元起'
   }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
     id: 2,
     num: 'NO.2',
-    amount: '无资金限制',
+    amount: '1000元起',
     multiple: '8',
     date: '月',
     money: '3',

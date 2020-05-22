@@ -37,11 +37,31 @@
 }
 
 .recharge-input {
-  width: 90%;
+  width: 100%;
+  line-height: 40px;
   border: none;
   text-align: center;
-  padding: 5%;
   background: none;
+  outline:none;
+}
+
+.recharge-input::-placeholder {
+  color: #000;
+}
+
+.recharge-input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #000;
+}
+
+.recharge-input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #000;
+}
+
+.recharge-input::-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #000;
 }
 
 .pay-way {

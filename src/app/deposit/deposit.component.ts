@@ -88,7 +88,7 @@ export class DepositComponent implements OnInit, OnDestroy {
         this.nameMsg='按申请金额收取固定收益'
       }else{
         this.financeData = this.staticData['single'];
-        this.nameMsg='按个股盈利分成';
+        this.nameMsg='免息盈利分成';
       }
       this.finance();
       if (this.userInfo.allottedScale === '0') {

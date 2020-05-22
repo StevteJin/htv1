@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit {
     day: '按使用金额收取固定收益',
     month: '按申请金额收取固定收益',
     week: '周配',
-    single: '按个股盈利分成'
+    single: '免息盈利分成'
   };
   logo = '';
   constructor(public data: DataService, public http: HttpService) {
