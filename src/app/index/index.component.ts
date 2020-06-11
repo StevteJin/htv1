@@ -63,9 +63,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     text1: '按日结算',
     zhongText: '按使用金额收取固定收益',
     //美林顾客
-    //diText: '1000元起',
+    diText: '1000元起',
     //赢顾客
-    diText: '无资金限制'
+    // diText: '无资金限制'
   }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
@@ -81,13 +81,13 @@ export class IndexComponent implements OnInit, OnDestroy {
     btns: 'btn1',
     text1: '合作分成',
     //美林客户
-    //zhongText: '免息盈利分成',
+    zhongText: '免息盈利分成',
     //赢客户
-    zhongText: '按个股盈利分成',
+    // zhongText: '按个股盈利分成',
     //美林顾客
-    //diText: '1000元起',
+    diText: '1000元起',
     //赢顾客
-    diText: '无资金限制'
+    // diText: '无资金限制'
   }, {
     img: './assets/images/banner1.png',
     btn: './assets/images/btn1.png',
