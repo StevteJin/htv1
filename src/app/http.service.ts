@@ -21,7 +21,7 @@ export class HttpService {
     // this.host = 'http://47.103.56.22/tn/';
     // this.host = '/tn/';
     // this.host = 'http://106.14.120.212/tn/';
-    this.host='http://mlwealth.cn/tn/';
+    this.host = 'http://mlwealth.cn/tn/';
     // this.host='http://47.102.84.50/tn/';
     // this.host='http://10.131.4.155:8080/tn/'
     this.ws = this.host + 'webSocket';
@@ -108,7 +108,7 @@ export class HttpService {
     return this.http.post(this.host + `public/register`, data);
   }
   signup1(data1) {
-    return this.http.post(`http://47.102.151.13:8199/invite/tag`, data1);
+    return this.http.post(`http://mlwealth.cn:8199/invite/tag`, data1);
   }
   /*新闻 */
   getNewsToken(params: any, reqOpts?: any) {
