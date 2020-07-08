@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit, DoCheck, OnDestroy {
   stompClient: any;
   price = [];
   isconnect: boolean;
-  tiao:boolean=false;
+  tiao: boolean = false;
   preClosePrice: any; // 昨收价
   volumes = [];
   staticData = {
@@ -64,7 +64,7 @@ export class ChartComponent implements OnInit, DoCheck, OnDestroy {
   isiPhone() {
     let isIphoneX: any = (() => {
       if (typeof window !== 'undefined' && window) {
-        console.log('userAgent>>',window.navigator.userAgent)
+        console.log('userAgent>>', window.navigator.userAgent)
         return /iphone/gi.test(window.navigator.userAgent) && window.screen.height >= 812;
       }
       return false;
@@ -105,7 +105,7 @@ export class ChartComponent implements OnInit, DoCheck, OnDestroy {
     const chart = new EmchartsMobileK({
       container: 'chart',
       type: this.chartType,
-      code:`${this.stockCode}${marketType}`,
+      code: `${this.stockCode}${marketType}`,
       width: document.body.clientWidth,
       height: 200,
       dpr: 2,

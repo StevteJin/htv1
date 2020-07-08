@@ -62,7 +62,9 @@ export class BuyComponent implements DoCheck, OnDestroy, OnInit {
     volumes = [];
     showChart = false; // 展示分时图
     showLine = false;
-
+    time: number = 3;
+    isTime: any = false;
+    timeS: any;
     chartTypeList = [{
         name: '分时',
         type: 'T1'
@@ -326,37 +328,54 @@ export class BuyComponent implements DoCheck, OnDestroy, OnInit {
      * 买入
      */
     buy() {
-        if (this.data.isNull(this.stockCode)) {
-            this.data.ErrorMsg('股票代码不能为空');
-        } else if (this.data.Decimal(this.appointPrice) > 2) {
-            this.data.ErrorMsg('委托价格不能超过两位小数');
-        } else if (this.data.isNull(this.appointPrice)) {
-            this.data.ErrorMsg('委托价格不能为空');
-        } else if (this.appointPrice < parseFloat(this.stockHQ.priceDownlimit).toFixed(2)) {
-            this.data.ErrorMsg('委托价格不能低于跌停价');
-        } else if (this.appointPrice > parseFloat(this.stockHQ.priceUplimit).toFixed(2)) {
-            this.data.ErrorMsg('委托价格不能高于涨停价');
-        } else if (parseInt(this.appointCnt, 0) !== this.appointCnt) {
-            this.data.ErrorMsg(`${this.text}数量必须是整数`);
-        } else if (this.appointCnt % 100 !== 0) {
-            if (this.classType === 'SELL' && this.appointCnt === this.fullcount) {
-                this.submitAlert = this.data.show;
-            } else {
-                this.data.ErrorMsg(this.text + '数量必须是100的整数倍');
-            }
-        } else if (this.appointCnt > this.fullcount) {
-            if (this.classType === 'BUY') {
-                this.data.ErrorMsg(`可用资金不足`);
-            } else {
-                this.data.ErrorMsg(`可卖数量不足`);
-            }
-        } else if (this.appointCnt <= 0) {
-            this.data.ErrorMsg(`${this.text}数量必须大于0`);
-            // } else if (this.appointCnt > 29) {
-            //     this.data.ErrorMsg(this.text + '数量不能大于29张');
+        this.isTime = true;
+        let that = this;
+        if (this.time > 0) {
+            this.timeS = setInterval(function () {
+                that.time = that.time - 1;
+                console.log('我啊', that.time);
+            }, 1000);
         } else {
-            this.submitAlert = this.data.show;
+            this.time = 3
+            clearInterval(that.timeS);
+            this.isTime = false;
         }
+        if (this.time ==3) {
+            if (this.data.isNull(this.stockCode)) {
+                this.data.ErrorMsg('股票代码不能为空');
+            } else if (this.data.Decimal(this.appointPrice) > 2) {
+                this.data.ErrorMsg('委托价格不能超过两位小数');
+            } else if (this.data.isNull(this.appointPrice)) {
+                this.data.ErrorMsg('委托价格不能为空');
+            } else if (this.appointPrice < parseFloat(this.stockHQ.priceDownlimit).toFixed(2)) {
+                this.data.ErrorMsg('委托价格不能低于跌停价');
+            } else if (this.appointPrice > parseFloat(this.stockHQ.priceUplimit).toFixed(2)) {
+                this.data.ErrorMsg('委托价格不能高于涨停价');
+            } else if (parseInt(this.appointCnt, 0) !== this.appointCnt) {
+                this.data.ErrorMsg(`${this.text}数量必须是整数`);
+            } else if (this.appointCnt % 100 !== 0) {
+                if (this.classType === 'SELL' && this.appointCnt === this.fullcount) {
+                    this.submitAlert = this.data.show;
+                } else {
+                    this.data.ErrorMsg(this.text + '数量必须是100的整数倍');
+                }
+            } else if (this.appointCnt > this.fullcount) {
+                if (this.classType === 'BUY') {
+                    this.data.ErrorMsg(`可用资金不足`);
+                } else {
+                    this.data.ErrorMsg(`可卖数量不足`);
+                }
+            } else if (this.appointCnt <= 0) {
+                this.data.ErrorMsg(`${this.text}数量必须大于0`);
+                // } else if (this.appointCnt > 29) {
+                //     this.data.ErrorMsg(this.text + '数量不能大于29张');
+            } else {
+                this.submitAlert = this.data.show;
+            }
+        } else {
+            this.data.ErrorMsg('请不要连续点击,1秒后再操作');
+        }
+
 
     }
 
