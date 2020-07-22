@@ -31,9 +31,9 @@
       <div class="add" (click)='count2(1)'>+</div>
     </div>
     <div class="green-red" style="padding-top: 4px;">
-      <span class="green-color" style="float:left;" (click)='selectPrice(stockHQ.priceDownlimit)'>跌停 {{stockHQ.priceDownlimit}}
+      <span class="green-color" style="float:left;" (click)='selectPrice(stockHQ.priceDownlimit)'>跌停 {{stockHQ.priceDownlimit!=0?stockHQ.priceDownlimit:'-'}}
       </span>
-      <span class="red-color" style="float:right;" (click)='selectPrice(stockHQ.priceUplimit)'>涨停 {{stockHQ.priceUplimit}}</span>
+      <span class="red-color" style="float:right;" (click)='selectPrice(stockHQ.priceUplimit)'>涨停 {{stockHQ.priceUplimit!=0?stockHQ.priceUplimit:'-' }}</span>
     </div>
     <p class="fullcount">
       <span>可{{classType=='BUY'?'买':'卖'}}股数：{{fullcount}}</span>
