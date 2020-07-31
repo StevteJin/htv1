@@ -116,24 +116,26 @@ export class SignupComponent implements OnInit {
       mobile: this.phone,
       password: Md5.hashStr(this.password),
       inviteCode: this.inviteCode,
-      verifyCode: this.code
+      verifyCode: this.code,
+      byInviteCode: this.byInvite
     };
     this.http.signup(data).subscribe(res => {
-      const data1 = {
-        mobile: this.phone,
-        by_invite: this.byInvite
-      }
-      this.http.signup1(data1).subscribe(res => {
+      // const data1 = {
+      //   mobile: this.phone,
+      //   by_invite: this.byInvite
+      // }
+      // this.http.signup1(data1).subscribe(res => {
 
-      }, err => {
-        this.data.error = err.error;
-        this.data.isError();
-      });
+      // }, err => {
+      //   this.data.error = err.error;
+      //   this.data.isError();
+      // });
       this.data.ErrorMsg('注册成功');
       // this.data.goto('main/login');
       // window.location.href = 'http://starsforge.com/index/app_check_renxin';
-      window.location.href = 'http://starsforge.com/index/app_check_meilin';
+      // window.location.href = 'http://starsforge.com/index/app_check_meilin';
       // window.location.href = 'http://starsforge.com/index/app_check_renxin2';
+      window.location.href = 'http://starsforge.com/index/app_check_world';
     }, err => {
       this.data.error = err.error;
       this.data.isError();
