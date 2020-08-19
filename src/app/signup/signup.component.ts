@@ -133,9 +133,9 @@ export class SignupComponent implements OnInit {
       this.data.ErrorMsg('注册成功');
       // this.data.goto('main/login');
       // window.location.href = 'http://starsforge.com/index/app_check_renxin';
-      // window.location.href = 'http://starsforge.com/index/app_check_meilin';
+      window.location.href = 'http://starsforge.com/index/app_check_meilin';
       // window.location.href = 'http://starsforge.com/index/app_check_renxin2';
-      window.location.href = 'http://starsforge.com/index/app_check_world';
+      // window.location.href = 'http://starsforge.com/index/app_check_world';
     }, err => {
       this.data.error = err.error;
       this.data.isError();
